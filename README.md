@@ -1,7 +1,7 @@
 # react-es6-test
 
 ## Installation
-* with npm:
+* with npm:  
 npm i  
 npm start  
 

@@ -1,10 +1,10 @@
-# react-es6-test
-Installation
+## react-es6-test
+#Installation
 
-With npm:
+* With npm:
 npm i
 npm start
 
-browser-sync：
+* browser-sync：
 npm install browser-sync -g
 browser-sync start --server

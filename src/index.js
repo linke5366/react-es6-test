@@ -17,6 +17,7 @@ import { Router, Route,IndexRoute, browserHistory } from 'react-router'
 render(<Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={Test} />
+      <Route path='/test' component={Test} />
       <Route path='/about' component={About} />
       <Route path='/repos' component={Repos} />
     </Route>

@@ -4,8 +4,11 @@ import { Link } from 'react-router'
 class App extends Component {
   render() {
     return (
-        <div>react-es6-test
+        <div>
          <ul>
+           <li>
+             <Link to="/test">Exercise</Link>
+           </li>
            <li>
              <Link to="/about">About</Link>
            </li>

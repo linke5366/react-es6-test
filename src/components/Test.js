@@ -9,6 +9,7 @@ class Test extends Component {
         <button onClick={this.f_destructuring.bind(this)} type="button">destructuring</button>
         <button onClick={this.f_string.bind(this)} type="button">string</button>
         <button onClick={this.f_regex.bind(this)} type="button">regex</button>
+        <button onClick={this.f_function.bind(this)} type="button">function</button>
       </div>
     );
   } 
@@ -144,7 +145,80 @@ class Test extends Component {
     console.log(add([1, 2])); // 3
   }
 
+  f_function(){
+    // ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法
+    var func = function(x, y){
+      y = y || 'World';//默认值
+      console.log(x);
+      console.log(y);
+    }
+    func('a');
 
+    // ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面
+    function log(x, y = 'World') {
+      console.log(' ES6 允许为函数的参数设置默认值');
+      console.log(x, y);
+    }
+    log('Hello') // Hello World 
+
+    //与解构赋值默认值结合使用
+    // foo的参数是一个对象时，变量x和y才会通过解构赋值而生成
+    function foo({x,y=4}){
+      console.log('与解构赋值默认值结合使用');
+      console.log(x,y);
+    }
+    foo({x:123});
+
+    // ES6 引入 rest 参数（形式为...变量名），用于获取函数的多余参数
+    function add(...values) {
+      let sum = 0;
+      for (var val of values) {
+        sum += val;
+      }
+      return sum;
+    }
+    console.log(add(2, 5, 3)) // 10
+
+    // 'use strict'; 严格模式
+
+    // 箭头函数
+    // 由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。
+    var f = (x,y)=>{
+      console.log(x+y);
+    }
+    f(1,2);
+    setTimeout(() => {console.log('真正执行要等到100毫秒后');}, 100);
+
+
+    // 传递函数作为回调
+    function fn(arg1, arg2, callback){
+      var num = Math.ceil(Math.random() * (arg1 - arg2) + arg2);
+      callback(num);　　//传递结果
+    }
+    fn(10, 20, function(num){
+      console.log("Callback called! Num: " + num); 
+    });
+  }
+
+  f_promise(){
+    // var promise = new Promise(function(resolve, reject) {
+    //   if (true){
+    //     resolve(value);
+    //   } else {
+    //     reject(error);
+    //   }
+    // });
+
+    function timeout(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(resolve, ms, 'done');
+        });
+      }
+
+      timeout(100).then((value) => {
+        console.log(value);
+    });
+  }
 
 }
 

@@ -188,6 +188,7 @@ class Test extends Component {
     }
     f(1,2);
     setTimeout(() => {console.log('真正执行要等到100毫秒后');}, 100);
+    setInterval(() => {console.log('定时1000毫秒执行一次');}, 1000);
 
 
     // 传递函数作为回调

@@ -16,6 +16,7 @@ class Test extends Component {
 
   // 组件的生命周期
   componentWillMount(){
+    console.log('react生命周期测试:componentWillMount->render->componentDidMount');
     console.log('componentWillMount');
   }
 
